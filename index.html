@@ -16,6 +16,13 @@
 <script src="lib.js"></script>
 <script>
     let ajax  = new XMLHttpRequest();
+    let http = new XMLHttpRequest();
     syncAjax("https://jsonplaceholder.typicode.com/posts/", ajax, document.getElementById("another-container"));
     asyncAjax("https://jsonplaceholder.typicode.com/users/", ajax, document.getElementById("container"));
+
+    // this will cause problem and result in undefined for the async call 
+    //asyncAjax("https://jsonplaceholder.typicode.com/users/", ajax, document.getElementById("container"));
+    // syncAjax("https://jsonplaceholder.typicode.com/posts/", ajax, document.getElementById("another-container"));
+    
+    // The solution is to use two separate XMLHttpRequest objects 
 </script>
